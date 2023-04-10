@@ -1,0 +1,19 @@
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# database
+/prisma/db.sqlite
+/prisma/db.sqlite-journal
+
+# typescript
+*.tsbuildinfo
+
+# local env files
+.env
+.env*.local
+
+# production
+/build
