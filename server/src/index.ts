@@ -1,19 +1,21 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 
 //App initialization
 const app = express();
-
+dotenv.config();
 //Import routes
 import { postRoutes } from "./routes/postRoutes";
-
-//Route Middleware
-app.use("/api/posts", postRoutes);
 
 // MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+//ROUTES
+app.use("/api/posts", postRoutes);
+
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
