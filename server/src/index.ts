@@ -7,6 +7,7 @@ const app = express();
 dotenv.config();
 //Import routes
 import { postRoutes } from "./routes/postRoutes";
+import { commentRoutes } from "./routes/commentRoutes";
 
 // MIDDLEWARE
 app.use(express.json());
@@ -15,7 +16,7 @@ app.use(cors());
 
 //ROUTES
 app.use("/api/posts", postRoutes);
-
+app.use("/api/comments", commentRoutes);
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
