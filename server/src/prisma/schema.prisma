@@ -19,12 +19,12 @@ model Example {
 }
 
 model Post {
-  id        String    @id @default(cuid())
+  id        String   @id @default(cuid())
   title     String
-  image     Image[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  comments  Comment[] 
+  image     Image?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  comments  Comment?
 }
 
 // Define the Comment model
@@ -32,8 +32,8 @@ model Comment {
   id        String   @id @default(cuid())
   text      String
   createdAt DateTime @default(now())
-  post      Post     @relation(fields: [postId], references: [id])
-  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  postId    String   @unique
 
   @@index([postId])
 }
@@ -43,8 +43,8 @@ model Image {
   id        String @id @default(cuid())
   url       String
   public_id String
-  post      Post     @relation(fields: [postId], references: [id])
-  postId    String
+  post      Post   @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  postId    String @unique
 
   @@index([postId])
 }
