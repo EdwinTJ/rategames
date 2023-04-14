@@ -3,23 +3,25 @@ const Login = () => {
   const { isSignedIn, user } = useUser();
   return (
     <>
-      <section className="text-center">
-        {isSignedIn && (
-          <>
-            {" "}
-            <h1>Hello {user.username}</h1>
-            <p>Go to review games Link </p>
-          </>
-        )}
-        {!isSignedIn && (
-          <>
-            {" "}
-            <h1>Login</h1>
-            <p>Please login if you want to review a game. Login by GitHub</p>
-            <SignInButton />
-          </>
-        )}
-      </section>
+      <main>
+        <section className="text-center">
+          {isSignedIn && (
+            <>
+              {" "}
+              <h1>Hello {user.username}</h1>
+              <p>Go to review games Link </p>
+            </>
+          )}
+          {!isSignedIn && (
+            <>
+              {" "}
+              <h1>Login</h1>
+              <p>Please login if you want to review a game. Login by GitHub</p>
+              <SignInButton />
+            </>
+          )}
+        </section>
+      </main>
     </>
   );
 };
