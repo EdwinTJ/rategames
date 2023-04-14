@@ -16,6 +16,19 @@ export const getAllPosts = async (req: any, res: any, next: any) => {
   });
 };
 
+// Get a single post
+export const getSinglePost = async (req: any, res: any) => {
+  const { id } = req.params;
+  const single = await prisma.post.findUnique({
+    where: {
+      id: id,
+    },
+  });
+  res.json({
+    success: true,
+    post: single,
+  });
+};
 // Create a new post
 export const newPost = async (req: any, res: any) => {
   const { title, image } = req.body;
