@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Navbar from "./Components/Navigation/Navbar";
+import Review from "./Pages/Review";
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ const Routing = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/review/:id" element={<Review />} />
     </Routes>
   );
 };
