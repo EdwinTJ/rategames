@@ -10,7 +10,7 @@ export const getAllPosts = async (
   res: Response,
   next: NextFunction
 ) => {
-  const pageSize = 6;
+  const pageSize = 12;
   const page = Number(req.query.pageNumber) || 1;
   const count = await prisma.post.count();
 

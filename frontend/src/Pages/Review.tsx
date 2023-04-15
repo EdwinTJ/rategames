@@ -1,17 +1,17 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 import { toast } from "react-hot-toast";
 import { Pagination } from "antd";
 //Data Fetching
-import { useGames } from "../hooks/useGames";
+import { useGame } from "../hooks/useGame";
 import { useComment } from "../hooks/useComment";
 const Review = () => {
   const { id } = useParams();
   const { user, isSignedIn } = useUser();
   //Data Fetching
-  const { games, imageUrl } = useGames();
+  const { games, imageUrl } = useGame();
   const { comments, count, pageNumber, setPageNumber } = useComment();
 
   //Form State
@@ -58,15 +58,11 @@ const Review = () => {
   };
   return (
     <main>
-      <section className="mb-3">
+      <section className="container">
+        <h1 className="text-center">{games.title}</h1>
         <div className="d-flex justify-content-center ">
           <div className="card-mb3">
             <img src={imageUrl} className="img-fluid" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title" style={{ textAlign: "center" }}>
-                {games.title}
-              </h5>
-            </div>
           </div>
         </div>
       </section>
@@ -95,18 +91,16 @@ const Review = () => {
               </div>
             </form>
           )}
+        </div>
+        <div>
           <h3>Comments:</h3>
           {comments.map((comment: any) => (
             <div className="comment" key={comment.id}>
               <h3>{comment.authorID}</h3>
               <p>{comment.text}</p>
-              <button type="button" className="btn btn-outline-primary">
-                Post
-              </button>
             </div>
           ))}
           <Pagination
-            style={{ float: "right", marginTop: "5px", marginBottom: "500px" }}
             current={pageNumber}
             total={count}
             onChange={(prev) => setPageNumber(prev)}

@@ -98,7 +98,7 @@ export const deleteComment = async (
 ) => {
   const { id } = req.params;
   try {
-    const comment = await prisma.comment.delete({
+    await prisma.comment.delete({
       where: {
         id: id,
       },
