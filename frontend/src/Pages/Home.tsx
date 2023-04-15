@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../Components/UIElements/Card";
+import { Pagination } from "antd";
+
 const Home = () => {
   const [games, setGames] = useState<any>([]);
+  //Pagination State
+  const [pageNumber, setPageNumber] = useState(1);
+  const [count, setCount] = useState(0);
 
   const fetchGames = async () => {
-    const { data } = await axios.get("http://localhost:8000/api/posts");
-    Promise.all(data.post).then((values) => {
-      setGames(values);
-    });
+    const { data } = await axios.get(
+      `http://localhost:8000/api/posts?&pageNumber=${pageNumber}`
+    );
+
+    setGames(data.post);
+    setCount(data.count);
   };
 
   useEffect(() => {
     fetchGames();
-  }, []);
-
+  }, [pageNumber]);
   return (
     <main>
       <section className="container">
@@ -33,6 +39,15 @@ const Home = () => {
             }
           )}
           {/* Start One Card */}
+        </div>
+        <div className="row">
+          <Pagination
+            style={{ float: "right", marginTop: "5px", marginBottom: "500px" }}
+            current={pageNumber}
+            total={count}
+            onChange={(prev) => setPageNumber(prev)}
+            pageSize={6}
+          />
         </div>
       </section>
     </main>

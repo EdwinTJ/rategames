@@ -3,16 +3,41 @@ import { cloudinary } from "../util/cloudinary";
 
 const prisma = new PrismaClient();
 
+// export const getAllPosts = async (req: any, res: any, next: any) => {
+//   // const count = await prisma.post.count(); Get this In Frontend
+//   const post = await prisma.post.findMany({
+//     include: {
+//       comments: true,
+//       image: true,
+//     },
+//     skip: pageSize * (page - 1),
+//     take: pageSize,
+//   });
+//   res.json({
+//     success: true,
+//     post,
+//   });
+// };
+
 export const getAllPosts = async (req: any, res: any, next: any) => {
+  const pageSize = 6;
+  const page = Number(req.query.pageNumber) || 1;
+  const count = await prisma.post.count();
+
   const post = await prisma.post.findMany({
     include: {
       comments: true,
       image: true,
     },
+    skip: pageSize * (page - 1),
+    take: pageSize,
   });
   res.json({
     success: true,
-    post: post,
+    post,
+    page,
+    pages: Math.ceil(count / pageSize),
+    count,
   });
 };
 
