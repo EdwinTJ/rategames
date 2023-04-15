@@ -23,6 +23,11 @@ export const getSinglePost = async (req: any, res: any) => {
     where: {
       id: id,
     },
+    include: {
+      image: true,
+      // comments: true,
+      // Should I send the comments with the post?
+    },
   });
   res.json({
     success: true,
