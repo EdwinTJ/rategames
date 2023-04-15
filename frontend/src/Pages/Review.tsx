@@ -4,53 +4,24 @@ import { useParams } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 import { toast } from "react-hot-toast";
 import { Pagination } from "antd";
-//TODO: Delete InfiniteScroll,useInfiniteScroll from package.json
+//Data Fetching
+import { useGames } from "../hooks/useGames";
+import { useComment } from "../hooks/useComment";
 const Review = () => {
   const { id } = useParams();
   const { user, isSignedIn } = useUser();
-  //Fetch states
-  const [games, setGames] = useState<any>([]);
-  const [comments, setComments] = useState<any>([]);
-  const [imageUrl, setImageUrl] = useState<string>();
+  //Data Fetching
+  const { games, imageUrl } = useGames();
+  const { comments, count, pageNumber, setPageNumber } = useComment();
+
   //Form State
   const [text, setText] = useState<string>("");
-  //Infinite Scroll State
-  const [pageNumber, setPageNumber] = useState(1);
-  const [count, setCount] = useState(0);
-  ///Fetch Data Functions
-  const fetchGames = async () => {
-    const { data } = await axios.get(
-      `http://localhost:8000/api/posts/single/${id}`
-    );
-    Promise.all([data]).then((values) => {
-      setImageUrl(values[0].post.image.url);
-      setGames(values[0].post);
-    });
-  };
 
-  const fetchComments = async () => {
-    const { data } = await axios.get(
-      `http://localhost:8000/api/comments/${id}?&pageNumber=${pageNumber}`
-    );
-    setComments(data.comment);
-    setCount(data.count);
-  };
-
-  //UseEffect Hooks
-  useEffect(() => {
-    fetchGames();
-  }, []);
-
-  useEffect(() => {
-    fetchComments();
-  }, [pageNumber]);
   //Functions
 
   const submitForm = async (e: any) => {
     e.preventDefault();
     const value = e.target[0].value;
-    console.log(value.length);
-    console.log(!isNaN(value));
     if (!isNaN(value)) {
       // true if its a number, false if not
       toast.error("Please enter a emoji");
