@@ -3,6 +3,7 @@
     "module": "ESNext",
     "esModuleInterop": true,
     "target": "ESNext",
+    "lib": ["esnext"],
     "moduleResolution": "Node",
     "outDir": "dist",
     "forceConsistentCasingInFileNames": true,
@@ -17,5 +18,6 @@
     "esm": true,
     "experimentalSpecifierResolution": "node"
   },
-  "lib": ["esnext"]
+
+  "exclude": ["node_modules"]
 }
