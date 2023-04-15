@@ -8,6 +8,14 @@
   justify-content: space-around;
 }
 
+.comment h3 {
+  margin: 1rem;
+  padding: 0;
+}
+.comment p {
+  margin: 1rem;
+  padding: 0;
+}
 main {
   margin-top: 1rem;
 }
