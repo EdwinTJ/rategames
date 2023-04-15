@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import { Router } from "express";
 import {
   getAllPosts,
   newPost,
@@ -6,6 +6,9 @@ import {
   deletePost,
   getSinglePost,
 } from "../controllers/postController";
+
+//router.method(path, validate(schema), controller)
+
 const router = Router();
 
 router.get("/", getAllPosts);
