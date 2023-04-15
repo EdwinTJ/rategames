@@ -20,11 +20,18 @@ const Home = () => {
       <section className="container">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {/* Start One Card */}
-          {games.map((games: { id: string; title: string; image: string }) => {
-            return (
-              <Card id={games.id} title={games.title} image={games.image} />
-            );
-          })}
+          {games.map(
+            (games: { id: string; title: string; image: { url: string } }) => {
+              return (
+                <Card
+                  key={games.id}
+                  id={games.id}
+                  title={games.title}
+                  image={games.image.url}
+                />
+              );
+            }
+          )}
           {/* Start One Card */}
         </div>
       </section>
