@@ -1,18 +1,33 @@
 import { Example, PrismaClient } from "@prisma/client";
+
+//Types
+import { type Request, type Response } from "express";
 const prisma = new PrismaClient();
 
 // Get Comments for a post
-export const getAllComments = async (req: any, res: any, next: any) => {
+export const getAllComments = async (
+  req: Request,
+  res: Response,
+  next: any
+) => {
   const { id } = req.params;
+  const pageSize = 8;
+  const page = Number(req.query.pageNumber) || 1;
+  const count = await prisma.post.count();
   try {
     const comment = await prisma.comment.findMany({
       where: {
         postId: id,
       },
+      skip: pageSize * (page - 1),
+      take: pageSize,
     });
     res.json({
       success: true,
       comment: comment,
+      page,
+      pages: Math.ceil(count / pageSize),
+      count,
     });
   } catch (error) {
     console.log(error);
@@ -20,10 +35,10 @@ export const getAllComments = async (req: any, res: any, next: any) => {
 };
 
 // Create a new comment for a post
-export const newComment = async (req: any, res: any) => {
+export const newComment = async (req: Request, res: Response) => {
   const { id } = req.params;
   const { text, authorId } = req.body;
-
+  console.log("text", typeof text);
   if (text === null || text === undefined) {
     res.json({
       success: false,
