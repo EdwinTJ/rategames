@@ -25,12 +25,12 @@ const Home = () => {
           )}
           {/* Start One Card */}
         </div>
-        <div>
+        <div className="pagination-margin">
           <Pagination
             current={pageNumber}
             total={count}
             onChange={(prev) => setPageNumber(prev)}
-            pageSize={12}
+            pageSize={6}
           />
         </div>
       </section>

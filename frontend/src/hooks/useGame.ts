@@ -35,9 +35,7 @@ export const useAllGames = () => {
   const [count, setCount] = useState(0);
 
   const fetchGames = async () => {
-    const { data } = await axios.get(
-      `http://localhost:8000/api/posts?&pageNumber=${pageNumber}`
-    );
+    const { data } = await axios.get(`api/posts?&pageNumber=${pageNumber}`);
 
     setGames(data.post);
     setCount(data.count);

@@ -30,14 +30,22 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <a className="nav-link active" aria-current="page">
-              <Link to="/">Home</Link>
-            </a>
-            <a className="nav-link" href="#">
-              <Link to="/login">Login</Link>
-            </a>
-          </div>
+          <ul className="navbar-nav me-auto">
+            <li className="nav-item">
+              <a className="nav-link">
+                <Link to="/" className="link">
+                  Home
+                </Link>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link">
+                <Link to="/login" className="link">
+                  Login
+                </Link>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>

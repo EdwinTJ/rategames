@@ -28,13 +28,10 @@ const Review = () => {
       return;
     }
     try {
-      const { data } = await axios.post(
-        `http://localhost:8000/api/comments/new/${id}`,
-        {
-          text,
-          authorId: user?.username,
-        }
-      );
+      const { data } = await axios.post(`api/comments/new/${id}`, {
+        text,
+        authorId: user?.username,
+      });
       if (data.success === true) {
         setText("");
         toast.success("Comment posted successfully!");
@@ -68,7 +65,11 @@ const Review = () => {
       </section>
       <section>
         <div>
-          {!isSignedIn && <p>You ned to be login in</p>}
+          {!isSignedIn && (
+            <div className="comment">
+              <p>You need to be login to post a review</p>
+            </div>
+          )}
           {isSignedIn && (
             <form encType="multipart/form-data" onSubmit={submitForm}>
               <div className="comment">
@@ -100,12 +101,14 @@ const Review = () => {
               <p>{comment.text}</p>
             </div>
           ))}
-          <Pagination
-            current={pageNumber}
-            total={count}
-            onChange={(prev) => setPageNumber(prev)}
-            pageSize={6}
-          />
+          <div className="pagination-margin">
+            <Pagination
+              current={pageNumber}
+              total={count}
+              onChange={(prev) => setPageNumber(prev)}
+              pageSize={6}
+            />
+          </div>
         </div>
       </section>
     </main>

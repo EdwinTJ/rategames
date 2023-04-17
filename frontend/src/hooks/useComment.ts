@@ -11,7 +11,7 @@ export function useComment() {
 
   const fetchComments = async () => {
     const { data } = await axios.get(
-      `http://localhost:8000/api/comments/${id}?&pageNumber=${pageNumber}`
+      `api/comments/${id}?&pageNumber=${pageNumber}`
     );
     setComments(data.comment);
     setCount(data.count);

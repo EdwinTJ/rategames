@@ -1,30 +1,46 @@
+/* Variables */
+:root {
+  --main-bg-color: #fff;
+  --main-navbar-color: #343a40;
+  --main-card-color: #f4f4f8;
+  --main-title-color: #212529;
+  --main-text-color: #6c757d;
+  --main-footer-color: #343a40;
+}
+
 html,
 body {
   height: 100%;
 }
 
 main {
-  background-color: #b8b8b8;
+  background-color: var(--main-bg-color);
 }
 /* Navbar */
 nav {
-  background-color: #949396;
+  background-color: var(--main-navbar-color);
+}
+
+.link {
+  text-decoration: none;
+  color: #d7dedc;
 }
 
 /* Card Css */
 div.card > div.card-body {
-  background-color: #cccccc;
+  background-color: var(--main-card-color);
 }
 .card-title {
-  color: #6b6b6b;
+  color: var(--main-text-color);
 }
-/* Comments Css */
+
+/* Comment */
 .comment {
   margin: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #cccccc;
+  background-color: var(--main-card-color);
   display: flex;
   justify-content: space-around;
 }
@@ -39,11 +55,20 @@ div.card > div.card-body {
 }
 
 .comment input {
-  background-color: #cccccc;
+  background-color: var(--main-card-color);
+}
+/* Pagination */
+.pagination-margin {
+  margin: 0.5rem;
 }
 
 /* Footer */
 footer {
-  background-color: #949396;
+  background-color: var(--main-footer-color);
   text-align: center;
+  color: #d7dedc;
+}
+
+footer a {
+  color: #d7dedc;
 }

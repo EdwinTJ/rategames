@@ -1,6 +1,6 @@
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
+import axios from "axios";
 // Pages
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
@@ -10,6 +10,7 @@ import Navbar from "./Components/Navigation/Navbar";
 import Footer from "./Components/Navigation/Footer";
 import LoadingSpinner from "./Components/UIElements/LoadingSpinner";
 function App() {
+  axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
   return (
     <>
       <BrowserRouter>
