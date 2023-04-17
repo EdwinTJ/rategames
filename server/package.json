@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "nodemon --exec ts-node src/index.ts"
   },
-  "author": "",
+  "author": "Edwin Silvestre",
   "license": "ISC",
   "dependencies": {
     "@clerk/clerk-sdk-node": "^4.8.2",
