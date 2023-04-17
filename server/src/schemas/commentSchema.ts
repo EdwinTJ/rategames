@@ -13,3 +13,9 @@ export const newCommentSchema = z.object({
     id: z.string(),
   }),
 });
+
+export const deleteCommentSchema = z.object({
+  params: z.object({
+    id: z.string({ required_error: "Comment ID must be a string" }),
+  }),
+});

@@ -1,4 +1,4 @@
-import { Example, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import HttpError from "../middleware/http-error";
 //Types
 import type { Request, Response, NextFunction } from "express";
