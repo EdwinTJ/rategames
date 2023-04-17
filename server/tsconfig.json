@@ -1,18 +1,26 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "esModuleInterop": true,
-    "target": "ESNext",
-    "lib": ["esnext"],
-    "moduleResolution": "Node",
-    "outDir": "dist",
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "isolatedModules": false,
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "checkJs": true,
+    "skipLibCheck": true,
     "strict": true,
-    "noImplicitAny": true,
-    "useUnknownInCatchVariables": false,
-    "inlineSourceMap": true
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "noUncheckedIndexedAccess": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "outDir": "./dist"
   },
   "ts-node": {
     "esm": true,
