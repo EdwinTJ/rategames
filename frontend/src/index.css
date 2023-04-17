@@ -57,6 +57,10 @@ div.card > div.card-body {
 .comment input {
   background-color: var(--main-card-color);
 }
+
+.comment-title {
+  padding-left: 1rem;
+}
 /* Pagination */
 .pagination-margin {
   margin: 0.5rem;

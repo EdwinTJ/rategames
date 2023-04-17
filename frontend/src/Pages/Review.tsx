@@ -94,7 +94,7 @@ const Review = () => {
           )}
         </div>
         <div>
-          <h3>Comments:</h3>
+          <h3 className="comment-title">Comments:</h3>
           {comments.map((comment: any) => (
             <div className="comment" key={comment.id}>
               <h3>{comment.authorID}</h3>
