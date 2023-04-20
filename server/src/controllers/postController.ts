@@ -1,4 +1,4 @@
-import { Example, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { cloudinary } from "../util/cloudinary";
 import HttpError from "../middleware/http-error";
 //import Types
