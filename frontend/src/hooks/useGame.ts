@@ -9,9 +9,7 @@ export const useGame = () => {
   const [imageUrl, setImageUrl] = useState<string>();
 
   const fetchSingleGame = async () => {
-    const { data } = await axios.get(
-      `http://localhost:8000/api/posts/single/${id}`
-    );
+    const { data } = await axios.get(`api/posts/single/${id}`);
     Promise.all([data]).then((values) => {
       setImageUrl(values[0].post.image.url);
       setGames(values[0].post);

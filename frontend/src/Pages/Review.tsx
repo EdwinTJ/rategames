@@ -40,6 +40,9 @@ const Review = () => {
             window.location.reload();
           }, 1000);
         }
+      } else {
+        const error = data.message;
+        toast.error(error);
       }
     } catch (error) {
       if (error instanceof Error) {
