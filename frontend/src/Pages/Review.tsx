@@ -44,11 +44,13 @@ const Review = () => {
         const error = data.message;
         toast.error(error);
       }
-    } catch (error) {
-      if (error instanceof Error) {
+    } catch (error: any) {
+      if (error) {
         const zodError = error.response.data.issues;
+
         if (zodError) {
           const errors = zodError.map((err: any) => err.message);
+          console.log(zodError);
           errors.forEach((error: any) => {
             toast.error(error);
           });

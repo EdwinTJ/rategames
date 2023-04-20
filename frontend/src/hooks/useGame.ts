@@ -27,7 +27,7 @@ export const useGame = () => {
 };
 
 export const useAllGames = () => {
-  const [games, setGames] = useState<any>([]);
+  const [games, setGames] = useState<any>();
   //Pagination State
   const [pageNumber, setPageNumber] = useState(1);
   const [count, setCount] = useState(0);
