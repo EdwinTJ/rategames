@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 export const useGame = () => {
   const { id } = useParams();
   // Fetch states
-  const [games, setGames] = useState<any[]>([]);
+  const [games, setGames] = useState<any>();
   const [imageUrl, setImageUrl] = useState<string>();
 
   const fetchSingleGame = async () => {
