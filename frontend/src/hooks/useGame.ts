@@ -2,18 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-type GamePost = {
-  title: string;
-  image: {
-    url: string;
-  };
-  id: string;
-};
-
 export const useGame = () => {
   const { id } = useParams();
   // Fetch states
-  const [games, setGames] = useState<GamePost[]>([]);
+  const [games, setGames] = useState<any>([]);
   const [imageUrl, setImageUrl] = useState<string>();
 
   const fetchSingleGame = async () => {
@@ -35,7 +27,7 @@ export const useGame = () => {
 };
 
 export const useAllGames = () => {
-  const [games, setGames] = useState<GamePost[]>([]);
+  const [games, setGames] = useState<any>([]);
   //Pagination State
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
