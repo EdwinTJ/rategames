@@ -1,13 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import axios from "axios";
+
 // Pages
-import Login from "./Pages/Login";
-import Home from "./Pages/Home";
-import Review from "./Pages/Review";
+const Login = lazy(() => import("./Pages/Login"));
+const Home = lazy(() => import("./Pages/Home"));
+const Review = lazy(() => import("./Pages/Review"));
+
 // UI Elements
-import Navbar from "./Components/Navigation/Navbar";
-import Footer from "./Components/Navigation/Footer";
+const Navbar = lazy(() => import("./Components/Navigation/Navbar"));
+const Footer = lazy(() => import("./Components/Navigation/Footer"));
 import LoadingSpinner from "./Components/UIElements/LoadingSpinner";
 function App() {
   axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;

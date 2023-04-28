@@ -3,20 +3,18 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 import { toast } from "react-hot-toast";
-import { Pagination } from "antd";
 //Data Fetching
 import { useGame } from "../hooks/useGame";
-import { useComment } from "../hooks/useComment";
+//UI
+import Comment from "../Components/UIElements/Comment";
 const Review = () => {
   const { id } = useParams();
   const { user, isSignedIn } = useUser();
   //Data Fetching
   const { games, imageUrl } = useGame();
-  const { comments, count, pageNumber, setPageNumber } = useComment();
 
   //Form State
   const [text, setText] = useState<string>("");
-
   //Functions
 
   const submitForm = async (e: any) => {
@@ -99,21 +97,7 @@ const Review = () => {
           )}
         </div>
         <div>
-          <h3 className="comment-title">Comments:</h3>
-          {comments.map((comment: any) => (
-            <div className="comment" key={comment.id}>
-              <h3>{comment.authorID}</h3>
-              <p>{comment.text}</p>
-            </div>
-          ))}
-          <div className="pagination-margin">
-            <Pagination
-              current={pageNumber}
-              total={count}
-              onChange={(prev) => setPageNumber(prev)}
-              pageSize={6}
-            />
-          </div>
+          <Comment />
         </div>
       </section>
     </main>

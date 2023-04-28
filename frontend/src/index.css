@@ -21,7 +21,7 @@ nav {
   background-color: var(--main-navbar-color);
 }
 
-.link {
+.nav-link {
   text-decoration: none;
   color: #d7dedc;
 }
