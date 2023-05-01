@@ -6,7 +6,7 @@ import axios from "axios";
 const Login = lazy(() => import("./Pages/Login"));
 const Home = lazy(() => import("./Pages/Home"));
 const Review = lazy(() => import("./Pages/Review"));
-
+const About = lazy(() => import("./Pages/About"));
 // UI Elements
 const Navbar = lazy(() => import("./Components/Navigation/Navbar"));
 const Footer = lazy(() => import("./Components/Navigation/Footer"));
@@ -37,6 +37,7 @@ const Routing = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/about" element={<About />} />
       <Route path="/review/:id" element={<Review />} />
     </Routes>
   );

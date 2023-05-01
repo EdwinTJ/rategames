@@ -7,6 +7,9 @@ const Footer = () => {
         <p>
           © {currentYear} :
           <a href="https://www.edwinsilvestrewebsite.com/">Edwin Silvestre</a>
+          <a href="https://github.com/EdwinTJ/rategames">
+            <i className="bi bi-github"></i>
+          </a>
         </p>
       </section>
     </footer>
