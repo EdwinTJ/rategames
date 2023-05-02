@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <main>
       <section className="container">
-        <h1 className="text-center">See Games</h1>
+        <h1 className="text-center">Games</h1>
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {/* Start One Card */}
           {games.map((games: Games) => {

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useUser, UserButton, SignInButton } from "@clerk/clerk-react";
+import Icon from "/icon.svg";
 const Navbar = () => {
   const { isSignedIn } = useUser();
 

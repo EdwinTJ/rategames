@@ -3,8 +3,8 @@ const About = () => {
     <section className="container">
       <h1 className="text-center">About</h1>
       <p className="text-center">
-        This is a simple web page that allows users to view and review games by
-        only using emojis.
+        This is a simple web page that allows to review games by only using
+        emojis.
       </p>
       <p className="text-center">
         <a href="https://discord.gg/Yg5Yx2JH35">
