@@ -85,7 +85,7 @@ const Review = () => {
                   type="text"
                   required
                   minLength={1}
-                  maxLength={55}
+                  maxLength={20}
                   onChange={(e) => setText(e.target.value)}
                   value={text}
                 />
