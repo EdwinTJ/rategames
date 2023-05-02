@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useUser, UserButton, SignInButton } from "@clerk/clerk-react";
-import Icon from "/icon.svg";
 const Navbar = () => {
   const { isSignedIn } = useUser();
 
@@ -33,25 +32,19 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <a className="nav-link">
-                <Link to="/" className="link">
-                  Home
-                </Link>
-              </a>
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link">
-                <Link to="/about" className="link">
-                  About
-                </Link>
-              </a>
+              <Link to="/about" className="nav-link">
+                About
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link">
-                <Link to="/login" className="link">
-                  Login
-                </Link>
-              </a>
+              <Link to="/login" className="nav-link">
+                Login
+              </Link>
             </li>
           </ul>
         </div>

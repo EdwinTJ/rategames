@@ -1,6 +1,8 @@
 import { SignInButton, useUser } from "@clerk/clerk-react";
+import { useNavigate, Link } from "react-router-dom";
 const Login = () => {
   const { isSignedIn, user } = useUser();
+  const navigate = useNavigate();
   return (
     <>
       <main>
@@ -9,7 +11,9 @@ const Login = () => {
             <>
               {" "}
               <h1>Hello {user.username}</h1>
-              <p>Go to review games Link </p>
+              <p>
+                Go to <Link to="/">home</Link> page, to start reviewing games
+              </p>
             </>
           )}
           {!isSignedIn && (
