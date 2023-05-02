@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 import { toast } from "react-hot-toast";
 //Data Fetching
@@ -8,6 +8,7 @@ import { useGame } from "../hooks/useGame";
 //UI
 import Comment from "../Components/UIElements/Comment";
 const Review = () => {
+  let navigate = useNavigate();
   const { id } = useParams();
   const { user, isSignedIn } = useUser();
   //Data Fetching
@@ -35,7 +36,7 @@ const Review = () => {
         toast.success("Comment posted successfully!");
         if (typeof window !== "undefined") {
           setTimeout(() => {
-            window.location.reload();
+            navigate(`/`);
           }, 1000);
         }
       } else {
