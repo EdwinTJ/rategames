@@ -32,19 +32,25 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <Link to="/" className="nav-link">
-                Home
-              </Link>
+              <div className="nav-link">
+                <Link to="/" className="nav-link-router">
+                  Home
+                </Link>
+              </div>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link">
-                About
-              </Link>
+              <div className="nav-link">
+                <Link to="/about" className="nav-link-router">
+                  About
+                </Link>
+              </div>
             </li>
             <li className="nav-item">
-              <Link to="/login" className="nav-link">
-                Login
-              </Link>
+              <div className="nav-link">
+                <Link to="/login" className="nav-link-router">
+                  Login
+                </Link>
+              </div>
             </li>
           </ul>
         </div>

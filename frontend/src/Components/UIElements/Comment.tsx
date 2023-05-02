@@ -1,10 +1,9 @@
-import React from "react";
 import { useComment } from "../../hooks/useComment";
 import { Pagination } from "antd";
 
 const Comment = () => {
   const { comments, count, pageNumber, setPageNumber } = useComment();
-
+  console.log(comments);
   return (
     <>
       <h3 className="comment-title">Comments:</h3>

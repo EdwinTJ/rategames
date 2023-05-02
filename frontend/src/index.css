@@ -21,11 +21,14 @@ nav {
   background-color: var(--main-navbar-color);
 }
 
-.nav-link {
+.nav-link-router {
+  color: #fff;
   text-decoration: none;
-  color: #d7dedc;
 }
-
+.nav-link-router:hover {
+  color: #6c757d;
+  text-decoration: none;
+}
 /* Card Css */
 div.card > div.card-body {
   background-color: var(--main-card-color);
